@@ -227,9 +227,9 @@ def test_live_feed_keeps_updating(app):
     for f in _frames(6):
         app.vision_engine.latest_frame = f
         pump(app, 0.12)
-        seen.add(id(live.feed._photo))
+        seen.add(live.feed.last_signature)
     assert live.feed.frames_shown >= 6
-    assert len(seen) >= 4          # a fresh image object per frame
+    assert len(seen) >= 5          # the picture really changes from frame to frame
 
 
 def test_tabs_stay_reachable_while_frames_stream(app):

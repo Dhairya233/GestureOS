@@ -30,6 +30,14 @@ import sys
 import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+def _shown(path):
+    """Path relative to the repo for display; the absolute path when it is on another drive (Windows)."""
+    try:
+        return os.path.relpath(path, ROOT)
+    except ValueError:
+        return path
 sys.path.insert(0, os.path.join(ROOT, "hand_gesture_system"))
 
 import numpy as np                                      # noqa: E402
@@ -204,7 +212,7 @@ def main() -> int:
         f.write(md)
     plot(res, os.path.join(out, "latency.png"), env["note"])
     print(md)
-    print("wrote", os.path.relpath(out, ROOT))
+    print("wrote", _shown(out))
     return 0
 
 

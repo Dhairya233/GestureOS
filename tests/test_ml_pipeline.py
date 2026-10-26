@@ -163,3 +163,16 @@ def test_train_cli_deploys_a_numpy_model_that_matches_sklearn(tmp_path, monkeypa
     m = NumpyModel.load(str(model))
     assert m.kind == "logreg" and os.path.getsize(model) < 1_000_000
     assert "SYNTHETIC DATA" not in (out / "results.md").read_text()
+
+
+def test_tools_print_a_path_even_when_it_is_on_another_drive(monkeypatch):
+    """Windows CI: temp dir on C:, repo on D: made os.path.relpath raise ValueError."""
+    import os, sys
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "tools"))
+    import benchmark, train_classifier
+
+    def boom(*a, **k):
+        raise ValueError("path is on mount 'C:', start on mount 'D:'")
+    monkeypatch.setattr(os.path, "relpath", boom)
+    for mod in (benchmark, train_classifier):
+        assert mod._shown("C:/tmp/x.json") == "C:/tmp/x.json"

@@ -21,6 +21,14 @@ import os
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+def _shown(path):
+    """Path relative to the repo for display; the absolute path when it is on another drive (Windows)."""
+    try:
+        return os.path.relpath(path, ROOT)
+    except ValueError:
+        return path
 sys.path.insert(0, os.path.join(ROOT, "hand_gesture_system"))
 
 import numpy as np                                        # noqa: E402
@@ -79,7 +87,7 @@ def main() -> int:
     with open(os.path.join(out, "results.md"), "w") as f:
         f.write(text)
     for p in report.make_plots(res, out, synthetic, a.compare):
-        print("wrote", os.path.relpath(p, ROOT))
+        print("wrote", _shown(p))
     print("\n" + text)
 
     if a.deploy != "none" and not synthetic:
