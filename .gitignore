@@ -1,0 +1,24 @@
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# Build output
+build/
+dist/
+*.spec
+
+# Per-user files: created on first run, never committed
+hand_gesture_system/config.json
+hand_gesture_system/config.json.*.tmp
+hand_gesture_system/*.tmp
+
+# Downloaded by tools/download_model.py (checksum-verified)
+hand_gesture_system/hand_landmarker.task
+
+# Recorded landmark data: personal, never committed
+data/
+out/

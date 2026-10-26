@@ -1,0 +1,13 @@
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+extend-exclude = ["venv", ".venv", "build", "dist"]
+
+[tool.ruff.lint]
+# Real bugs only: syntax errors, undefined names, unused imports/variables,
+# redefinitions, bare excepts.  No style rules, so lint stays quiet and useful.
+select = ["E9", "F", "E722"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::UserWarning:customtkinter.*"]

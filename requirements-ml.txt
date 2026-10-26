@@ -1,0 +1,6 @@
+# Only needed to RECORD data, TRAIN and EVALUATE the optional learned classifier
+# (the app itself, including running a trained model, needs only requirements.txt).
+# Tested together on Linux with Python 3.12 and 3.13.
+-r requirements.txt
+scikit-learn==1.9.1
+matplotlib==3.11.2

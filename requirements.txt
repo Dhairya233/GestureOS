@@ -1,0 +1,12 @@
+# Versions below were installed together and exercised on Linux / Python 3.13
+# (model load + landmark detection on a blank frame). They have NOT been run on
+# Windows by the author of this file; see docs/MANUAL_TEST_CHECKLIST.md.
+# mediapipe itself depends on opencv-contrib-python, so that is the cv2 package
+# listed here (do not also install plain opencv-python: two cv2 packages clash).
+mediapipe==1.1.1
+opencv-contrib-python==5.0.0.93
+numpy==2.5.4
+Pillow==13.0.0
+customtkinter==6.0.0
+pyautogui==0.9.54
+psutil==7.2.2

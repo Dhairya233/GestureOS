@@ -1,0 +1,28 @@
+{
+    "enable_mouse": true,
+    "enable_click": true,
+    "enable_rclick": true,
+    "enable_drag": true,
+    "enable_edge": true,
+    "enable_scroller": true,
+    "enable_canvas": true,
+    "enable_media": true,
+    "enable_launcher": true,
+    "enable_modifier": true,
+    "enable_kill": true,
+    "enable_volume": true,
+    "mouse_smoothing": 5,
+    "scroll_speed": 0.1,
+    "volume_delay": 0.15,
+    "screen_reduction": 0.65,
+    "kill_frames": 20,
+    "canvas_active_color": "green",
+    "canvas_brush_thickness": 5,
+    "app_paths": {
+        "2_fingers": "cmd.exe",
+        "3_fingers": "https://www.google.com",
+        "4_fingers": "code"
+    },
+    "swap_handedness": true,
+    "classifier": "rules"
+}
